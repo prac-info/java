@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Registration From</h1>
+<form action="data.jsp">
+<table border="1" width="50" cellspacing="4" cellpadding="4">
+<tbody>
+<tr>
+<td>Username:</td>
+<td><input type="text" name="uname" value="" /></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="pass" value="" /></td>
+</tr>
+<tr>
+11
+<td>Email ID::</td>
+<td><input type="email" name="email" value="" /></td>
+</tr>
+<tr>
+<td>Mobile No:</td>
+<td><input type="number" name="mno" value="" /></td>
+</tr>
+<tr>
+<td><input type="submit" value="REGISTER"/></td>
+<td><input type="reset" value="CLEAR"/></td>
+</tr>
+</tbody>
+</table>
+</form>
+</body>
+</html>
+
+
+Data.jsp
+<%@page contentType="text/html" import="java.sql.*;"pageEncoding="UTF8"%>
+<!DOCTYPE html>
+<html>
+<body>
+12
+<%
+String uname = request.getParameter("uname"); 
+String pass = request.getParameter("pass"); 
+String email = request.getParameter("email"); 
+String mno = request.getParameter("mno");
+String url = "jdbc:mysql://localhost:3306/db1";
+try {
+Class.forName("com.mysql.jdbc.Driver");
+Connection con = DriverManager.getConnection(url, "root",
+"12345");
+PreparedStatement ps = con.prepareStatement("insert into tblUser
+values(?,?,?,?)");
+ps.setString(1, uname); 
+ps.setString(2, pass); 
+ps.setString(3, email); 
+ps.setString(4, mno); 
+ps.executeUpdate();
+out.println("Record Saved Successfully");
+} catch (Exception ex) { 
+out.println(ex.getMessage());
+}
+%>
+</body>
+</html>
+
