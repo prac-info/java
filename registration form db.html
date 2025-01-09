@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action="data.jsp" method="post">
+        <table border="1" width="50%" cellspacing="4" cellpadding="4">
+            <tbody>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="uname" required /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="pass" required /></td>
+                </tr>
+                <tr>
+                    <td>Email ID:</td>
+                    <td><input type="email" name="email" required /></td>
+                </tr>
+                <tr>
+                    <td>Mobile No:</td>
+                    <td><input type="tel" name="mno" pattern="[0-9]{10}" required /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="REGISTER" /></td>
+                    <td><input type="reset" value="CLEAR" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
